@@ -22,3 +22,22 @@
   gap: 10px 0px;
   padding: 10px;
 }
+
+.country__box {
+  font-size: 16px;
+}
+
+.country__box:hover {
+  cursor: pointer;
+}
+
+.country__box:hover .country__image {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.country__image {
+  width: 40px;
+  height: 30px;
+  margin-right: 5px;
+  border-radius: 8px;
+}

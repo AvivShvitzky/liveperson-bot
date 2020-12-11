@@ -1,5 +1,6 @@
 // libraries and css
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import './Countries.css'
 // components
 
@@ -31,7 +32,17 @@ function Countries() {
         <div className="continent__name__box"><span>Europe</span></div>
         <div className="continent__countries__list">
           {countries.Europe &&
-           countries.Europe.map(country => <span key={country.name}>{country.name}</span>)
+           countries.Europe.sort().map(country =>
+            <div className="country__box">
+              <Link 
+                to={{pathname: `/country${country.name}`}} 
+                key={country.name}
+              >
+                <img className="country__image" src={country.flag} alt=""/>
+                {country.name}
+              </Link>
+            </div> 
+           )
           }
         </div>
       </div>
