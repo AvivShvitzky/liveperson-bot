@@ -34,7 +34,7 @@ function Countries() {
         <div className="continent__countries__list">
           {countries.Europe &&
            countries.Europe.sort().map(country =>
-            <div className="country__box" key={uuidv4()}>
+            <div className="country__box" key={uuidv4()} style={{transition}}>
               <Link 
                 to={{
                   pathname: `/country/${country.name + country.capital}`,
