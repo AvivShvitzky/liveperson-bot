@@ -37,7 +37,7 @@ function Countries() {
             <div className="country__box" key={uuidv4()} style={{transition}}>
               <Link 
                 to={{
-                  pathname: `/country/${country.name + country.capital}`,
+                  pathname: `/country/${country.name}`,
                   state: {country} 
                 }}
               >
