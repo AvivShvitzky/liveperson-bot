@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import Countries from './pages/countries/Countries'
+import Country from './pages/country/Country'
 
 const Router = () => {
   return (
@@ -18,6 +19,9 @@ const Router = () => {
         </Route>
         <Route exact default path="/countries"
           component={Countries}
+        />
+        <Route exact default path="/country/:name"
+          component={Country}
         />
       </Switch>
       {/* <Footer /> */}
