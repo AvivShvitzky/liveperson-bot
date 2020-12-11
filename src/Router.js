@@ -6,7 +6,7 @@ import {
   Redirect
 } from 'react-router-dom';
 
-import Countries from './pages/Countries'
+import Countries from './pages/countries/Countries'
 
 const Router = () => {
   return (

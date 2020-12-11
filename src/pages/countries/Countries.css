@@ -1,0 +1,17 @@
+.continent__box {
+  display: flex;
+  margin-left: 30px;
+}
+
+.continent__name__box, .continent__countries__list {
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.6);border-radius: 0;
+}
+
+.continent__name__box {
+  margin-right: 5px;
+}
+
+.continent__countries__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
