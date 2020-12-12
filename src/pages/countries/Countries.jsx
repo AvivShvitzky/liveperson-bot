@@ -15,7 +15,7 @@ import { fetchCountries } from '../../api/fetchFuncs'
 
 function Countries() {
   const [countries, setCountries] = useState({})
-  const [currentContinentActive, setCurrentContinentActive] = useState(AFRICA)
+  const [currentContinentActive, setCurrentContinentActive] = useState(ALL)
   const continents = [ALL, AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA]
 
   useEffect(() => {
@@ -57,7 +57,30 @@ function Countries() {
   }
 
   const renderAll = () => {
-
+    return <>
+    {Object.keys(countries).map(continent => {
+      return <>
+        <div className="continent__name__box"><span>{continent}</span></div>
+        <div className="continent__countries__list">
+          {countries[continent] &&
+            [...countries[continent]].sort().map(country =>
+              <div className="country__box" key={country.name}>
+              <Link 
+                to={{
+                  pathname: `/country/${country.name}`,
+                  state: {country} 
+                }}
+              >
+                <img className="country__image" src={country.flag} alt=""/>
+                {country.name}
+              </Link>
+            </div> 
+            )
+          }
+        </div>
+      </>
+    })}
+  </>
   }
 
   return (
@@ -76,7 +99,9 @@ function Countries() {
       </div>
       
       <div className="continent__box">
-        {renderBycontinent()}
+        {currentContinentActive === ALL ? renderAll() : renderBycontinent()}
+        {/* {renderBycontinent()} */}
+        {/* {renderAll()} */}
       </div>
     </div>
   );
