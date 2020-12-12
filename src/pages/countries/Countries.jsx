@@ -38,38 +38,38 @@ function Countries() {
     <div className="countries">
       <div className="btn-continents__box">
         <button type="button" 
-          class={'btn-continent btn ' + (currentContinentActive === AFRICA ? 'btn-primary' :  'btn-outline-primary')}
+          className={'btn-continent btn ' + (currentContinentActive === AFRICA ? 'btn-primary' :  'btn-outline-primary')}
           onClick={() => onBtnContinentHandler(AFRICA)}
         
         >
           {AFRICA}
         </button>
         <button type="button" 
-          class={'btn-continent btn ' + (currentContinentActive === AMERICAS ? 'btn-primary' :  'btn-outline-primary')}
+          className={'btn-continent btn ' + (currentContinentActive === AMERICAS ? 'btn-primary' :  'btn-outline-primary')}
           onClick={() => onBtnContinentHandler(AMERICAS)}
           >
           {AMERICAS}
         </button>
         <button type="button" 
-          class={'btn-continent btn ' + (currentContinentActive === ASIA ? 'btn-primary' :  'btn-outline-primary')}
+          className={'btn-continent btn ' + (currentContinentActive === ASIA ? 'btn-primary' :  'btn-outline-primary')}
           onClick={() => onBtnContinentHandler(ASIA)}
           >
           {ASIA}
         </button>
         <button type="button" 
-          class={'btn-continent btn ' + (currentContinentActive === ERUOPE ? 'btn-primary' :  'btn-outline-primary')}
+          className={'btn-continent btn ' + (currentContinentActive === ERUOPE ? 'btn-primary' :  'btn-outline-primary')}
           onClick={() => onBtnContinentHandler(ERUOPE)}
           >
           {ERUOPE}
         </button>
         <button type="button" 
-          class={'btn-continent btn ' + (currentContinentActive === OCEANIA ? 'btn-primary' :  'btn-outline-primary')}
+          className={'btn-continent btn ' + (currentContinentActive === OCEANIA ? 'btn-primary' :  'btn-outline-primary')}
           onClick={() => onBtnContinentHandler(OCEANIA)}
           >
           {OCEANIA}
         </button>
         <button type="button" 
-          class={'btn-continent btn ' + (currentContinentActive === POLAR ? 'btn-primary' :  'btn-outline-primary')}
+          className={'btn-continent btn ' + (currentContinentActive === POLAR ? 'btn-primary' :  'btn-outline-primary')}
           onClick={() => onBtnContinentHandler(POLAR)}
           >
           {POLAR}

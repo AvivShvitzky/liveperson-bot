@@ -1,0 +1,44 @@
+
+.country__header {
+  display: flex;
+  margin: 15px;
+}
+
+.country__header:first-child {
+  position: absolute;
+}
+
+.country__header:last-child {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin: auto;
+}
+
+.country__header {
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+}
+
+.country__details {
+  display: flex;
+  justify-content: space-evenly;
+  width: 1000px;
+  margin: auto;
+}
+
+.country__detail {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+
+.country__detail label {
+  font-size: 20px;
+}
+
+.country__img {
+  height: 200px;
+  margin-bottom: 10px;
+}
