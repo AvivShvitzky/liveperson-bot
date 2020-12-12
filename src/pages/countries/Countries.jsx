@@ -16,7 +16,7 @@ import { fetchCountries } from '../../api/fetchFuncs'
 
 function Countries() {
   const [countries, setCountries] = useState({})
-  const [continentBtnActive, setContinentBtnActive] = useState('Africa')
+  const [currentContinentActive, setCurrentContinentActive] = useState('Africa')
 
   useEffect(() => {
     async function getCountries() {
@@ -30,62 +30,56 @@ function Countries() {
   }, [])
 
   const onBtnContinentHandler = (continentName) => {
-    setContinentBtnActive(continentName)
+    setCurrentContinentActive(continentName)
   }
 
   return (
     <div className="countries">
       <div className="btn-continents__box">
         <button type="button" 
-          class={'btn-continent btn ' + (continentBtnActive === 'Africa' ? 'btn-primary' :  'btn-outline-primary')}
+          class={'btn-continent btn ' + (currentContinentActive === 'Africa' ? 'btn-primary' :  'btn-outline-primary')}
           onClick={() => onBtnContinentHandler('Africa')}
         
         >
           Africa
         </button>
         <button type="button" 
-          class={'btn-continent btn ' + (continentBtnActive === 'Americas' ? 'btn-primary' :  'btn-outline-primary')}
+          class={'btn-continent btn ' + (currentContinentActive === 'Americas' ? 'btn-primary' :  'btn-outline-primary')}
           onClick={() => onBtnContinentHandler('Americas')}
           >
           Americas
         </button>
         <button type="button" 
-          class={'btn-continent btn ' + (continentBtnActive === 'Asia' ? 'btn-primary' :  'btn-outline-primary')}
+          class={'btn-continent btn ' + (currentContinentActive === 'Asia' ? 'btn-primary' :  'btn-outline-primary')}
           onClick={() => onBtnContinentHandler('Asia')}
           >
           Asia
         </button>
         <button type="button" 
-          class={'btn-continent btn ' + (continentBtnActive === 'Europe' ? 'btn-primary' :  'btn-outline-primary')}
+          class={'btn-continent btn ' + (currentContinentActive === 'Europe' ? 'btn-primary' :  'btn-outline-primary')}
           onClick={() => onBtnContinentHandler('Europe')}
           >
           Europe
         </button>
         <button type="button" 
-          class={'btn-continent btn ' + (continentBtnActive === 'Oceania' ? 'btn-primary' :  'btn-outline-primary')}
+          class={'btn-continent btn ' + (currentContinentActive === 'Oceania' ? 'btn-primary' :  'btn-outline-primary')}
           onClick={() => onBtnContinentHandler('Oceania')}
           >
           Oceania
         </button>
         <button type="button" 
-          class={'btn-continent btn ' + (continentBtnActive === 'Polar' ? 'btn-primary' :  'btn-outline-primary')}
+          class={'btn-continent btn ' + (currentContinentActive === 'Polar' ? 'btn-primary' :  'btn-outline-primary')}
           onClick={() => onBtnContinentHandler('Polar')}
           >
           Polar
-        </button>
-        <button type="button" 
-          class={'btn-continent btn ' + (continentBtnActive === 'Other' ? 'btn-primary' :  'btn-outline-primary')}
-          onClick={() => onBtnContinentHandler('Other')}
-          >
-          Other
         </button>
       </div>
       
       <div className="continent__box">
         <div className="continent__name__box"><span>Africa</span></div>
         <div className="continent__countries__list">
-          {countries.Africa &&
-           countries.Africa.sort().map(country =>
+          {countries[currentContinentActive] &&
+           countries[currentContinentActive].sort().map(country =>
             <div className="country__box" key={uuidv4()}>
               <Link 
                 to={{
