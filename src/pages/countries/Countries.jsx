@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // components
 
 // consts
+import {AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA, POLAR} from '../../constants'
 
 // api
 import { fetchCountries } from '../../api/fetchFuncs'
@@ -16,7 +17,7 @@ import { fetchCountries } from '../../api/fetchFuncs'
 
 function Countries() {
   const [countries, setCountries] = useState({})
-  const [currentContinentActive, setCurrentContinentActive] = useState('Africa')
+  const [currentContinentActive, setCurrentContinentActive] = useState(AFRICA)
 
   useEffect(() => {
     async function getCountries() {
@@ -37,41 +38,41 @@ function Countries() {
     <div className="countries">
       <div className="btn-continents__box">
         <button type="button" 
-          class={'btn-continent btn ' + (currentContinentActive === 'Africa' ? 'btn-primary' :  'btn-outline-primary')}
-          onClick={() => onBtnContinentHandler('Africa')}
+          class={'btn-continent btn ' + (currentContinentActive === AFRICA ? 'btn-primary' :  'btn-outline-primary')}
+          onClick={() => onBtnContinentHandler(AFRICA)}
         
         >
-          Africa
+          {AFRICA}
         </button>
         <button type="button" 
-          class={'btn-continent btn ' + (currentContinentActive === 'Americas' ? 'btn-primary' :  'btn-outline-primary')}
-          onClick={() => onBtnContinentHandler('Americas')}
+          class={'btn-continent btn ' + (currentContinentActive === AMERICAS ? 'btn-primary' :  'btn-outline-primary')}
+          onClick={() => onBtnContinentHandler(AMERICAS)}
           >
-          Americas
+          {AMERICAS}
         </button>
         <button type="button" 
-          class={'btn-continent btn ' + (currentContinentActive === 'Asia' ? 'btn-primary' :  'btn-outline-primary')}
-          onClick={() => onBtnContinentHandler('Asia')}
+          class={'btn-continent btn ' + (currentContinentActive === ASIA ? 'btn-primary' :  'btn-outline-primary')}
+          onClick={() => onBtnContinentHandler(ASIA)}
           >
-          Asia
+          {ASIA}
         </button>
         <button type="button" 
-          class={'btn-continent btn ' + (currentContinentActive === 'Europe' ? 'btn-primary' :  'btn-outline-primary')}
-          onClick={() => onBtnContinentHandler('Europe')}
+          class={'btn-continent btn ' + (currentContinentActive === ERUOPE ? 'btn-primary' :  'btn-outline-primary')}
+          onClick={() => onBtnContinentHandler(ERUOPE)}
           >
-          Europe
+          {ERUOPE}
         </button>
         <button type="button" 
-          class={'btn-continent btn ' + (currentContinentActive === 'Oceania' ? 'btn-primary' :  'btn-outline-primary')}
-          onClick={() => onBtnContinentHandler('Oceania')}
+          class={'btn-continent btn ' + (currentContinentActive === OCEANIA ? 'btn-primary' :  'btn-outline-primary')}
+          onClick={() => onBtnContinentHandler(OCEANIA)}
           >
-          Oceania
+          {OCEANIA}
         </button>
         <button type="button" 
-          class={'btn-continent btn ' + (currentContinentActive === 'Polar' ? 'btn-primary' :  'btn-outline-primary')}
-          onClick={() => onBtnContinentHandler('Polar')}
+          class={'btn-continent btn ' + (currentContinentActive === POLAR ? 'btn-primary' :  'btn-outline-primary')}
+          onClick={() => onBtnContinentHandler(POLAR)}
           >
-          Polar
+          {POLAR}
         </button>
       </div>
       
