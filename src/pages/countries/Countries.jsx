@@ -62,11 +62,9 @@ function Countries() {
   }
 
   const renderAllCountries = () => {
-    return <>
-    {Object.keys(countries).map(continent => 
+    return Object.keys(countries).map(continent => 
       renderCountries(continent)
-    )}
-  </>
+    )
   }
 
   return (
