@@ -27,7 +27,7 @@
 }
 
 .country__detail__box {
-  width: 500px;
+  width: 450px;
   display: flex;
   justify-content: space-between;
   gap: 20px;
