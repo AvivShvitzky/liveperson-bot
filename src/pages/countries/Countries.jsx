@@ -37,7 +37,7 @@ function Countries() {
     return <>
       <div className="continent__name__box"><span>{currentContinentActive}</span></div>
       <div className="continent__countries__list">
-        {countries[currentContinentActive] &&
+        {
           [...countries[currentContinentActive]].sort().map(country =>
             <div className="country__box" key={country.name}>
             <Link 
@@ -62,7 +62,7 @@ function Countries() {
       return <>
         <div className="continent__name__box"><span>{continent}</span></div>
         <div className="continent__countries__list">
-          {countries[continent] &&
+          {
             [...countries[continent]].sort().map(country =>
               <div className="country__box" key={country.name}>
               <Link 
@@ -100,8 +100,6 @@ function Countries() {
       
       <div className="continent__box">
         {currentContinentActive === ALL ? renderAll() : renderBycontinent()}
-        {/* {renderBycontinent()} */}
-        {/* {renderAll()} */}
       </div>
     </div>
   );
