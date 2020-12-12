@@ -33,14 +33,18 @@ function Countries() {
     setCurrentContinentActive(continentName)
   }
 
+  const renderCountries = continent => {
+    return [...countries[continent]].sort().map(country =>
+      <CountryItem country={country} key={country.name}/>
+    )
+  }
+
   const renderBycontinent = () => {
     return <>
       <div className="continent__name__box"><span>{currentContinentActive}</span></div>
       <div className="continent__countries__list">
         {
-          [...countries[currentContinentActive]].sort().map(country =>
-            <CountryItem country={country} key={country.name}/>
-          )
+          renderCountries(currentContinentActive)
         }
       </div>
     </>
@@ -53,9 +57,7 @@ function Countries() {
         <div className="continent__name__box"><span>{continent}</span></div>
         <div className="continent__countries__list">
           {
-            [...countries[continent]].sort().map(country =>
-              <CountryItem country={country} key={country.name}/>
-            )
+            renderCountries(continent)
           }
         </div>
       </div>
