@@ -1,15 +1,12 @@
 .continent__box {
-  display: flex;
-  margin-left: 30px;
+  margin: auto;
   width: 95%;
 }
 
 .continent__name__box {
-  display: flex;
-  align-items: center;
-  margin-right: 5px;
-  padding: 0px 10px;
+  text-align: center;
   font-size: 30px;
+  margin-bottom: 20px;
 }
 
 .continent__countries__list {
