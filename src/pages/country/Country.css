@@ -41,7 +41,7 @@
   display: flex;
   font-size: 20px;
   gap: 10px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .country__detail {
@@ -65,3 +65,6 @@
   content: ""
 }
 
+.detail__label__icon {
+  color: #505f6e;
+}

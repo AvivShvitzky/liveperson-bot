@@ -7,9 +7,9 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faLanguage, faCoins, faClock, faGlobeAfrica } from '@fortawesome/free-solid-svg-icons'
+import { faLanguage, faCoins, faClock, faGlobeAfrica, faUniversity } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faLanguage, faCoins, faClock, faGlobeAfrica)
+library.add(faLanguage, faCoins, faClock, faGlobeAfrica, faUniversity)
 
 ReactDOM.render(
   <React.StrictMode>

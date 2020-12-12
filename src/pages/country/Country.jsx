@@ -19,14 +19,28 @@ function Country(props) {
       <Link to="/countries">Go Back To Countries Page</Link>
       <img className="country__img" src={country.flag}/>
       <h1 className="country__name">{country.name}</h1>
-      <label className="country__detail__label">Capital City</label>
+      {/* <label className="country__detail__label">
+        <FontAwesomeIcon icon="university" size="lg" className="detail__label__icon"/>
+        Capital City
+      </label>
       <span className="country__detail">
         {country.capital}
-      </span>
+      </span> */}
 
       <div className="country__detail__box">
         <label className="country__detail__label">
-          <FontAwesomeIcon icon="language" size="lg"/>
+          <FontAwesomeIcon icon="university" size="lg" className="detail__label__icon"/>
+          Capital City
+        </label>
+        <span className="country__detail">
+          {country.capital}
+        </span>
+      </div>
+      <hr className="hr"/>
+
+      <div className="country__detail__box">
+        <label className="country__detail__label">
+          <FontAwesomeIcon icon="language" size="lg" className="detail__label__icon"/>
           Languages
         </label>
         <span className="country__detail">
@@ -41,7 +55,7 @@ function Country(props) {
 
       <div className="country__detail__box">
         <label className="country__detail__label">
-          <FontAwesomeIcon icon="coins" size="lg"/>
+          <FontAwesomeIcon icon="coins" size="lg" className="detail__label__icon"/>
           Currencies
         </label>
         <span className="country__detail">
@@ -55,7 +69,7 @@ function Country(props) {
 
       <div className="country__detail__box">
         <label className="country__detail__label">
-          <FontAwesomeIcon icon="clock" size="lg"/>
+          <FontAwesomeIcon icon="clock" size="lg" className="detail__label__icon"/>
           Timezones
         </label>
         <span className="country__detail">
@@ -69,7 +83,7 @@ function Country(props) {
 
       <div className="country__detail__box">
         <label className="country__detail__label">
-          <FontAwesomeIcon icon="globe-africa" size="lg"/>
+          <FontAwesomeIcon icon="globe-africa" size="lg" className="detail__label__icon"/>
           Border Countries
         </label>
         <span className="country__detail">
