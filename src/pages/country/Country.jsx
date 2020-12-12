@@ -29,7 +29,7 @@ function Country(props) {
           {country.capital}
         </span>
       </div>
-      <hr className="hr"/>
+      <hr/>
 
       <div className="country__detail__box">
         <Header iconType="language">
@@ -42,7 +42,7 @@ function Country(props) {
           })}
         </span>
       </div>
-      <hr className="hr"/>
+      <hr/>
 
 
       <div className="country__detail__box">
@@ -56,7 +56,7 @@ function Country(props) {
           })}
         </span>
       </div>
-      <hr className="hr"/>
+      <hr/>
 
       <div className="country__detail__box">
         <Header iconType="clock">
@@ -69,7 +69,7 @@ function Country(props) {
           })}
         </span>
       </div>
-      <hr className="hr"/>
+      <hr/>
 
       <div className="country__detail__box">
         <Header iconType="globe-africa">
@@ -82,20 +82,7 @@ function Country(props) {
           })}
         </span>
       </div>
-      <hr className="hr"/>
-
-      {/* <div className="country__detail">
-        <label>Currencies</label>
-        {country.currencies}
-      </div>
-      <div className="country__detail">
-        <label>Timezone</label>
-        {country.timezones}
-      </div>
-      <div className="country__detail">
-        <label>Border Countries</label>
-        {country.borders}
-      </div> */}
+      <hr/>
     </div>
   );
 };

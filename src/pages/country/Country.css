@@ -53,8 +53,12 @@
   font-size: 16px;
 }
 
-.hr {
+.country hr {
   width: 500px;
+}
+
+.country hr:last-child {
+  width: 0px;
 }
 
 .detail {
