@@ -57,3 +57,11 @@
   margin: 5px;
 }
 
+.detail::after {
+  content: ","
+}
+
+.detail:last-child::after {
+  content: ""
+}
+
