@@ -46,25 +46,25 @@ function Countries() {
     </div>
   }
 
-  const renderCountries = continent => {
-    return <div key={continent}>
-      <div className="continent__name__box"><span>{continent}</span></div>
-      <div className="continent__countries__list">
-        {[...countries[continent]].sort().map(country =>
-          ElemCountry(country)
-        )}
-      </div>
-    </div> 
-  }
+  const renderCountries = () => {
+    const renderCountriesBycontinent = continent => {
+      return <div key={continent}>
+        <div className="continent__name__box"><span>{continent}</span></div>
+        <div className="continent__countries__list">
+          {[...countries[continent]].sort().map(country =>
+            ElemCountry(country)
+          )}
+        </div>
+      </div> 
+    }
 
-  const renderCountriesBycontinent = () => {
-    return renderCountries(currentContinentActive)
-  }
-
-  const renderAllCountries = () => {
-    return Object.keys(countries).map(continent => 
-      renderCountries(continent)
-    )
+    if (currentContinentActive === ALL) {
+      return Object.keys(countries).map(continent => 
+        renderCountriesBycontinent(continent)
+      )
+    } else {
+      return renderCountriesBycontinent(currentContinentActive)
+    }
   }
 
   return (
@@ -81,7 +81,7 @@ function Countries() {
       </div>
       
       <div className="continent__box">
-        {currentContinentActive === ALL ? renderAllCountries() : renderCountriesBycontinent()}
+        {renderCountries()}
       </div>
     </div>
   );
