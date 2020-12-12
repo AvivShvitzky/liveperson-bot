@@ -6,7 +6,7 @@ import './Countries.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // components
-import Button from '../../components/button/Button'
+import Button from '../../components/button/button-countries/BtnCountries'
 
 // consts
 import {AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA, POLAR} from '../../constants'
@@ -14,13 +14,11 @@ import {AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA, POLAR} from '../../constants'
 // api
 import { fetchCountries } from '../../api/fetchFuncs'
 
-// store
-
 function Countries() {
   const [countries, setCountries] = useState({})
   const [currentContinentActive, setCurrentContinentActive] = useState(AFRICA)
   const continents = [AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA, POLAR]
-  
+
   useEffect(() => {
     async function getCountries() {
       const fectchedCountries = await fetchCountries()

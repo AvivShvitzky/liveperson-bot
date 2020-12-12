@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Country.css'
-// components
 
-// consts
+// components
+import Header from '../../components/header/Header'
 
 function Country(props) {
   const [country, setCountry] = useState({})
+  // const countryDetails = ['name', ]
 
   useEffect(() => {
     setCountry(props.location.state.country)
@@ -21,10 +22,9 @@ function Country(props) {
       <h1 className="country__name">{country.name}</h1>
 
       <div className="country__detail__box">
-        <label className="country__detail__label">
-          <FontAwesomeIcon icon="university" size="lg" className="detail__label__icon"/>
+        <Header iconType="university">
           Capital City
-        </label>
+        </Header>
         <span className="country__detail">
           {country.capital}
         </span>
@@ -32,10 +32,9 @@ function Country(props) {
       <hr className="hr"/>
 
       <div className="country__detail__box">
-        <label className="country__detail__label">
-          <FontAwesomeIcon icon="language" size="lg" className="detail__label__icon"/>
+        <Header iconType="language">
           Languages
-        </label>
+        </Header>
         <span className="country__detail">
           {country.languages &&
           country.languages.map(language => {
@@ -47,10 +46,9 @@ function Country(props) {
 
 
       <div className="country__detail__box">
-        <label className="country__detail__label">
-          <FontAwesomeIcon icon="coins" size="lg" className="detail__label__icon"/>
+        <Header iconType="coins">
           Currencies
-        </label>
+        </Header>
         <span className="country__detail">
           {country.currencies &&
           country.currencies.map(currency => {
@@ -61,10 +59,9 @@ function Country(props) {
       <hr className="hr"/>
 
       <div className="country__detail__box">
-        <label className="country__detail__label">
-          <FontAwesomeIcon icon="clock" size="lg" className="detail__label__icon"/>
+        <Header iconType="clock">
           Timezones
-        </label>
+        </Header>
         <span className="country__detail">
           {country.timezones &&
           country.timezones.map(timeZone => {
@@ -75,10 +72,9 @@ function Country(props) {
       <hr className="hr"/>
 
       <div className="country__detail__box">
-        <label className="country__detail__label">
-          <FontAwesomeIcon icon="globe-africa" size="lg" className="detail__label__icon"/>
+        <Header iconType="globe-africa">
           Borders
-        </label>
+        </Header>
         <span className="country__detail">
           {country.borders &&
           country.borders.map(border => {

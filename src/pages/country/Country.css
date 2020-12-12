@@ -37,11 +37,15 @@
   text-align: center;
 }
 
-.country__detail__label {
+.country__detail__box label {
   display: flex;
   font-size: 16px;
   gap: 10px;
   font-weight: 500;
+}
+
+.country__detail__box label svg {
+  color: #505f6e;
 }
 
 .country__detail {
@@ -65,6 +69,3 @@
   content: ""
 }
 
-.detail__label__icon {
-  color: #505f6e;
-}

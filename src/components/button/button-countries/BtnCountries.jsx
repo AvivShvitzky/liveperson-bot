@@ -1,7 +1,7 @@
 import React from 'react'
-import './Button.css'
+import './BtnCountries.css'
 
-function Button({ currentContext, buttonContext, onClickHandler}) {
+function BtnCountries({ currentContext, buttonContext, onClickHandler}) {
   return (
     <button type="button" 
       className={'btn-continent btn ' + (currentContext === buttonContext ? 'btn-primary' :  'btn-outline-primary')}
@@ -12,4 +12,4 @@ function Button({ currentContext, buttonContext, onClickHandler}) {
   )
 }
 
-export default Button
+export default BtnCountries
