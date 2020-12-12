@@ -1,11 +1,10 @@
 // libraries and css
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import './Countries.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 // components
 import Button from '../../components/button/button-countries/BtnCountries'
-import CountryItem from '../../components/country-item/CountryItem'
 
 // consts
 import {ALL, AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA} from '../../constants'
@@ -33,12 +32,26 @@ function Countries() {
     setCurrentContinentActive(continentName)
   }
 
+  const ElemCountry = country => {
+    return <div className="country__box" key={country.name}>
+      <Link 
+        to={{
+          pathname: `/country/${country.name}`,
+          state: {country} 
+        }}
+      >
+        <img className="country__image" src={country.flag} alt=""/>
+        {country.name}
+      </Link>
+    </div>
+  }
+
   const renderCountries = continent => {
     return <>
       <div className="continent__name__box"><span>{continent}</span></div>
       <div className="continent__countries__list">
         {[...countries[continent]].sort().map(country =>
-          <CountryItem country={country} key={country.name}/>
+          ElemCountry(country)
         )}
       </div>
     </> 

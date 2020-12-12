@@ -3,6 +3,12 @@
   width: 95%;
 }
 
+.country__img {
+  width: 400px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
 .continent__name__box {
   text-align: center;
   font-size: 40px;
