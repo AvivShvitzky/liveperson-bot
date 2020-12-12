@@ -9,7 +9,6 @@ import Header from '../../components/header/Header'
 
 function Country(props) {
   const [country, setCountry] = useState({})
-  // const countryDetails = ['name', ]
 
   useEffect(() => {
     setCountry(props.location.state.country)
@@ -22,9 +21,7 @@ function Country(props) {
       <h1 className="country__name">{country.name}</h1>
 
       <div className="country__detail__box">
-        <Header iconType="university">
-          Capital City
-        </Header>
+        <Header iconType="university">Capital City</Header>
         <span className="country__detail">
           {country.capital}
         </span>
@@ -32,9 +29,7 @@ function Country(props) {
       <hr/>
 
       <div className="country__detail__box">
-        <Header iconType="language">
-          Languages
-        </Header>
+        <Header iconType="language">Languages</Header>
         <span className="country__detail">
           {country.languages &&
           country.languages.map(language => {
@@ -44,11 +39,8 @@ function Country(props) {
       </div>
       <hr/>
 
-
       <div className="country__detail__box">
-        <Header iconType="coins">
-          Currencies
-        </Header>
+        <Header iconType="coins">Currencies</Header>
         <span className="country__detail">
           {country.currencies &&
           country.currencies.map(currency => {
@@ -59,9 +51,7 @@ function Country(props) {
       <hr/>
 
       <div className="country__detail__box">
-        <Header iconType="clock">
-          Timezones
-        </Header>
+        <Header iconType="clock">Timezones</Header>
         <span className="country__detail">
           {country.timezones &&
           country.timezones.map(timeZone => {
@@ -72,9 +62,7 @@ function Country(props) {
       <hr/>
 
       <div className="country__detail__box">
-        <Header iconType="globe-africa">
-          Borders
-        </Header>
+        <Header iconType="globe-africa">Borders</Header>
         <span className="country__detail">
           {country.borders &&
           country.borders.map(border => {
