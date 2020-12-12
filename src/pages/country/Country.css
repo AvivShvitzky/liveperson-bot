@@ -14,12 +14,6 @@
   left: 0;
 }
 
-.country__img {
-  width: 400px;
-  height: 200px;
-  margin-bottom: 10px;
-}
-
 .country__name {
   font-size: 30px;
   color: palevioletred;

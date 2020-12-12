@@ -39,7 +39,7 @@ function Countries() {
       <div className="continent__countries__list">
         {
           [...countries[currentContinentActive]].sort().map(country =>
-            <CountryItem country={country}/>
+            <CountryItem country={country} key={country.name}/>
           )
         }
       </div>
@@ -48,34 +48,32 @@ function Countries() {
 
   const renderAll = () => {
     return <>
-    {Object.keys(countries).map(continent => {
-      return <>
+    {Object.keys(countries).map(continent => 
+      <div key={continent}>
         <div className="continent__name__box"><span>{continent}</span></div>
         <div className="continent__countries__list">
           {
             [...countries[continent]].sort().map(country =>
-              <CountryItem country={country}/>
+              <CountryItem country={country} key={country.name}/>
             )
           }
         </div>
-      </>
-    })}
+      </div>
+    )}
   </>
   }
 
   return (
     <div className="countries">
       <div className="btn-continents__box">
-        {continents.map(continent => {
-          return (
-            <Button 
-              currentContext={currentContinentActive}
-              buttonContext={continent}
-              onClickHandler={onBtnContinentHandler}
-              key={continent}
-            />
-          )
-        })}
+        {continents.map(continent =>
+          <Button 
+            currentContext={currentContinentActive}
+            buttonContext={continent}
+            onClickHandler={onBtnContinentHandler}
+            key={continent}
+          />
+        )}
       </div>
       
       <div className="continent__box">
