@@ -76,7 +76,7 @@ function Countries() {
       </div>
       
       <div className="continent__box">
-        <div className="continent__name__box"><span>Africa</span></div>
+        <div className="continent__name__box"><span>{currentContinentActive}</span></div>
         <div className="continent__countries__list">
           {countries[currentContinentActive] &&
            countries[currentContinentActive].sort().map(country =>
