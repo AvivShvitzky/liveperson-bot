@@ -23,7 +23,6 @@ function Country(props) {
       <span className="country__detail">
         {country.capital}
       </span>
-      <hr className="hr"/>
 
       <div className="country__detail__box">
         <label className="country__detail__label">
@@ -63,6 +62,20 @@ function Country(props) {
           {country.timezones &&
           country.timezones.map(timeZone => {
             return <span className="detail" key={timeZone}>{timeZone}</span>
+          })}
+        </span>
+      </div>
+      <hr className="hr"/>
+
+      <div className="country__detail__box">
+        <label className="country__detail__label">
+          <FontAwesomeIcon icon="globe-africa" size="lg"/>
+          Border Countries
+        </label>
+        <span className="country__detail">
+          {country.borders &&
+          country.borders.map(border => {
+            return <span className="detail" key={border}>{border}</span>
           })}
         </span>
       </div>
