@@ -1,7 +1,6 @@
 // libraries and css
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from 'uuid';
 import './Countries.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -9,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from '../../components/button/button-countries/BtnCountries'
 
 // consts
-import {AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA, POLAR} from '../../constants'
+import {AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA} from '../../constants'
 
 // api
 import { fetchCountries } from '../../api/fetchFuncs'
@@ -17,7 +16,7 @@ import { fetchCountries } from '../../api/fetchFuncs'
 function Countries() {
   const [countries, setCountries] = useState({})
   const [currentContinentActive, setCurrentContinentActive] = useState(AFRICA)
-  const continents = [AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA, POLAR]
+  const continents = [AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA]
 
   useEffect(() => {
     async function getCountries() {
@@ -53,8 +52,8 @@ function Countries() {
         <div className="continent__name__box"><span>{currentContinentActive}</span></div>
         <div className="continent__countries__list">
           {countries[currentContinentActive] &&
-           countries[currentContinentActive].sort().map(country =>
-            <div className="country__box" key={uuidv4()}>
+           countries[currentContinentActive].sort().map((country, id) =>
+            <div className="country__box" key={id}>
               <Link 
                 to={{
                   pathname: `/country/${country.name}`,
