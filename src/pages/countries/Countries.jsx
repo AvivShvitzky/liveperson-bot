@@ -34,32 +34,25 @@ function Countries() {
   }
 
   const renderCountries = continent => {
-    return [...countries[continent]].sort().map(country =>
-      <CountryItem country={country} key={country.name}/>
-    )
+    return <>
+      <div className="continent__name__box"><span>{continent}</span></div>
+      <div className="continent__countries__list">
+        {[...countries[continent]].sort().map(country =>
+          <CountryItem country={country} key={country.name}/>
+        )}
+      </div>
+    </> 
   }
 
   const renderCountriesBycontinent = () => {
-    return <>
-      <div className="continent__name__box"><span>{currentContinentActive}</span></div>
-      <div className="continent__countries__list">
-        {
-          renderCountries(currentContinentActive)
-        }
-      </div>
-    </>
+    return renderCountries(currentContinentActive)
   }
 
   const renderAllCountries = () => {
     return <>
     {Object.keys(countries).map(continent => 
       <div key={continent}>
-        <div className="continent__name__box"><span>{continent}</span></div>
-        <div className="continent__countries__list">
-          {
-            renderCountries(continent)
-          }
-        </div>
+        {renderCountries(continent)}
       </div>
     )}
   </>
