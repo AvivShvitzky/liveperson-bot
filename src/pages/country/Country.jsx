@@ -19,13 +19,6 @@ function Country(props) {
       <Link to="/countries">Go Back To Countries Page</Link>
       <img className="country__img" src={country.flag}/>
       <h1 className="country__name">{country.name}</h1>
-      {/* <label className="country__detail__label">
-        <FontAwesomeIcon icon="university" size="lg" className="detail__label__icon"/>
-        Capital City
-      </label>
-      <span className="country__detail">
-        {country.capital}
-      </span> */}
 
       <div className="country__detail__box">
         <label className="country__detail__label">
@@ -84,7 +77,7 @@ function Country(props) {
       <div className="country__detail__box">
         <label className="country__detail__label">
           <FontAwesomeIcon icon="globe-africa" size="lg" className="detail__label__icon"/>
-          Border Countries
+          Borders
         </label>
         <span className="country__detail">
           {country.borders &&
