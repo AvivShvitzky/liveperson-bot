@@ -47,14 +47,14 @@ function Countries() {
   }
 
   const renderCountries = continent => {
-    return <>
+    return <div key={continent}>
       <div className="continent__name__box"><span>{continent}</span></div>
       <div className="continent__countries__list">
         {[...countries[continent]].sort().map(country =>
           ElemCountry(country)
         )}
       </div>
-    </> 
+    </div> 
   }
 
   const renderCountriesBycontinent = () => {
@@ -64,9 +64,7 @@ function Countries() {
   const renderAllCountries = () => {
     return <>
     {Object.keys(countries).map(continent => 
-      <div key={continent}>
-        {renderCountries(continent)}
-      </div>
+      renderCountries(continent)
     )}
   </>
   }
