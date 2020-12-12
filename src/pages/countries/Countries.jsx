@@ -19,7 +19,8 @@ import { fetchCountries } from '../../api/fetchFuncs'
 function Countries() {
   const [countries, setCountries] = useState({})
   const [currentContinentActive, setCurrentContinentActive] = useState(AFRICA)
-
+  const continents = [AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA, POLAR]
+  
   useEffect(() => {
     async function getCountries() {
       const fectchedCountries = await fetchCountries()
@@ -38,36 +39,16 @@ function Countries() {
   return (
     <div className="countries">
       <div className="btn-continents__box">
-        <Button 
-          currentContext={currentContinentActive}
-          buttonContext={AFRICA}
-          onClickHandler={onBtnContinentHandler}
-        />
-        <Button 
-          currentContext={currentContinentActive}
-          buttonContext={AMERICAS}
-          onClickHandler={onBtnContinentHandler}
-        />
-        <Button 
-          currentContext={currentContinentActive}
-          buttonContext={ASIA}
-          onClickHandler={onBtnContinentHandler}
-        />
-        <Button 
-          currentContext={currentContinentActive}
-          buttonContext={ERUOPE}
-          onClickHandler={onBtnContinentHandler}
-        />
-        <Button 
-          currentContext={currentContinentActive}
-          buttonContext={OCEANIA}
-          onClickHandler={onBtnContinentHandler}
-        />
-        <Button 
-          currentContext={currentContinentActive}
-          buttonContext={POLAR}
-          onClickHandler={onBtnContinentHandler}
-        />
+        {continents.map(continent => {
+          return (
+            <Button 
+              currentContext={currentContinentActive}
+              buttonContext={continent}
+              onClickHandler={onBtnContinentHandler}
+              key={continent}
+            />
+          )
+        })}
       </div>
       
       <div className="continent__box">
