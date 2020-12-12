@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from '../../components/button/button-countries/BtnCountries'
 
 // consts
-import {AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA} from '../../constants'
+import {ALL, AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA} from '../../constants'
 
 // api
 import { fetchCountries } from '../../api/fetchFuncs'
@@ -16,7 +16,7 @@ import { fetchCountries } from '../../api/fetchFuncs'
 function Countries() {
   const [countries, setCountries] = useState({})
   const [currentContinentActive, setCurrentContinentActive] = useState(AFRICA)
-  const continents = [AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA]
+  const continents = [ALL, AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA]
 
   useEffect(() => {
     async function getCountries() {
@@ -31,6 +31,33 @@ function Countries() {
 
   const onBtnContinentHandler = (continentName) => {
     setCurrentContinentActive(continentName)
+  }
+
+  const renderBycontinent = () => {
+    return <>
+      <div className="continent__name__box"><span>{currentContinentActive}</span></div>
+      <div className="continent__countries__list">
+        {countries[currentContinentActive] &&
+          [...countries[currentContinentActive]].sort().map(country =>
+            <div className="country__box" key={country.name}>
+            <Link 
+              to={{
+                pathname: `/country/${country.name}`,
+                state: {country} 
+              }}
+            >
+              <img className="country__image" src={country.flag} alt=""/>
+              {country.name}
+            </Link>
+          </div> 
+          )
+        }
+      </div>
+    </>
+  }
+
+  const renderAll = () => {
+
   }
 
   return (
@@ -49,24 +76,7 @@ function Countries() {
       </div>
       
       <div className="continent__box">
-        <div className="continent__name__box"><span>{currentContinentActive}</span></div>
-        <div className="continent__countries__list">
-          {countries[currentContinentActive] &&
-           countries[currentContinentActive].sort().map((country, id) =>
-            <div className="country__box" key={id}>
-              <Link 
-                to={{
-                  pathname: `/country/${country.name}`,
-                  state: {country} 
-                }}
-              >
-                <img className="country__image" src={country.flag} alt=""/>
-                {country.name}
-              </Link>
-            </div> 
-           )
-          }
-        </div>
+        {renderBycontinent()}
       </div>
     </div>
   );

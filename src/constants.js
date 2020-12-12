@@ -1,3 +1,4 @@
+export const ALL = 'All'
 export const AFRICA = 'Africa'
 export const AMERICAS = 'Americas'
 export const ASIA = 'Asia'
