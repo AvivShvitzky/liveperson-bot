@@ -1,6 +1,7 @@
 // libraries and css
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Country.css'
 // components
 
@@ -11,42 +12,60 @@ function Country(props) {
 
   useEffect(() => {
     setCountry(props.location.state.country)
-  }, [])
+  }, [props.location.state.country])
 
   return (
     <div className="country">
-      <div className="country__header">
-        <div>
-          <Link to="/countries">Go Back To Countries Page</Link>
-        </div>
-        <div>
-          <img className="country__img" src={country.flag}/>
-          <h1 className="country__header">{country.name}</h1>
-        </div>
-      </div>
+      <Link to="/countries">Go Back To Countries Page</Link>
+      <img className="country__img" src={country.flag}/>
+      <h1 className="country__name">{country.name}</h1>
+      <label className="country__detail__label">Capital City</label>
+      <span className="country__detail">
+        {country.capital}
+      </span>
+      <hr className="hr"/>
 
-      <div className="country__details">
-        <div className="country__detail">
-          <label>Capital City</label>
-          {country.capital}
-        </div>
-        <div className="country__detail">
-          <label>Languages</label>
-          {country.languages}
-        </div>
-        {/* <div className="country__detail">
-          <label>Currencies</label>
-          {country.currencies}
-        </div>
-        <div className="country__detail">
-          <label>Timezone</label>
-          {country.timezones}
-        </div>
-        <div className="country__detail">
-          <label>Border Countries</label>
-          {country.borders}
-        </div> */}
+      <div className="country__detail__box">
+        <label className="country__detail__label">
+          <FontAwesomeIcon icon="language" size="lg"/>
+          Languages
+        </label>
+        <span className="country__detail">
+          {country.languages &&
+          country.languages.map(language => {
+            return <span className="detail" key={language.name}>{language.name}</span>
+          })}
+        </span>
       </div>
+      <hr className="hr"/>
+
+
+      <div className="country__detail__box">
+        <label className="country__detail__label">
+          <FontAwesomeIcon icon="language" size="lg"/>
+          Currencies
+        </label>
+        <span className="country__detail">
+          {country.currencies &&
+          country.currencies.map(currency => {
+            return <span className="detail" key={currency.name}>{currency.name}</span>
+          })}
+        </span>
+      </div>
+      <hr className="hr"/>
+
+      {/* <div className="country__detail">
+        <label>Currencies</label>
+        {country.currencies}
+      </div>
+      <div className="country__detail">
+        <label>Timezone</label>
+        {country.timezones}
+      </div>
+      <div className="country__detail">
+        <label>Border Countries</label>
+        {country.borders}
+      </div> */}
     </div>
   );
 };

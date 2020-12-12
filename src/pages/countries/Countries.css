@@ -4,10 +4,6 @@
   width: 95%;
 }
 
-.continent__name__box, .continent__countries__list {
-  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.6);border-radius: 0;
-}
-
 .continent__name__box {
   display: flex;
   align-items: center;
