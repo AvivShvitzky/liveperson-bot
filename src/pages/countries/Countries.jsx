@@ -39,7 +39,7 @@ function Countries() {
     )
   }
 
-  const renderBycontinent = () => {
+  const renderCountriesBycontinent = () => {
     return <>
       <div className="continent__name__box"><span>{currentContinentActive}</span></div>
       <div className="continent__countries__list">
@@ -50,7 +50,7 @@ function Countries() {
     </>
   }
 
-  const renderAll = () => {
+  const renderAllCountries = () => {
     return <>
     {Object.keys(countries).map(continent => 
       <div key={continent}>
@@ -79,7 +79,7 @@ function Countries() {
       </div>
       
       <div className="continent__box">
-        {currentContinentActive === ALL ? renderAll() : renderBycontinent()}
+        {currentContinentActive === ALL ? renderAllCountries() : renderCountriesBycontinent()}
       </div>
     </div>
   );
