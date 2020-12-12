@@ -42,13 +42,27 @@ function Country(props) {
 
       <div className="country__detail__box">
         <label className="country__detail__label">
-          <FontAwesomeIcon icon="language" size="lg"/>
+          <FontAwesomeIcon icon="coins" size="lg"/>
           Currencies
         </label>
         <span className="country__detail">
           {country.currencies &&
           country.currencies.map(currency => {
             return <span className="detail" key={currency.name}>{currency.name}</span>
+          })}
+        </span>
+      </div>
+      <hr className="hr"/>
+
+      <div className="country__detail__box">
+        <label className="country__detail__label">
+          <FontAwesomeIcon icon="clock" size="lg"/>
+          Timezones
+        </label>
+        <span className="country__detail">
+          {country.timezones &&
+          country.timezones.map(timeZone => {
+            return <span className="detail" key={timeZone}>{timeZone}</span>
           })}
         </span>
       </div>

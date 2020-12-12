@@ -21,8 +21,9 @@
 }
 
 .country__name {
-  font-size: 1.5em;
+  font-size: 30px;
   color: palevioletred;
+  margin-bottom: 30px;
 }
 
 .country__detail__box {

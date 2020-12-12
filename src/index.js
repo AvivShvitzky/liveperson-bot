@@ -7,9 +7,9 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faLanguage } from '@fortawesome/free-solid-svg-icons'
+import { faLanguage, faCoins, faClock } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faLanguage)
+library.add(faLanguage, faCoins, faClock)
 
 ReactDOM.render(
   <React.StrictMode>
