@@ -6,6 +6,7 @@ import './Countries.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // components
+import Button from '../../components/button/Button'
 
 // consts
 import {AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA, POLAR} from '../../constants'
@@ -37,43 +38,36 @@ function Countries() {
   return (
     <div className="countries">
       <div className="btn-continents__box">
-        <button type="button" 
-          className={'btn-continent btn ' + (currentContinentActive === AFRICA ? 'btn-primary' :  'btn-outline-primary')}
-          onClick={() => onBtnContinentHandler(AFRICA)}
-        
-        >
-          {AFRICA}
-        </button>
-        <button type="button" 
-          className={'btn-continent btn ' + (currentContinentActive === AMERICAS ? 'btn-primary' :  'btn-outline-primary')}
-          onClick={() => onBtnContinentHandler(AMERICAS)}
-          >
-          {AMERICAS}
-        </button>
-        <button type="button" 
-          className={'btn-continent btn ' + (currentContinentActive === ASIA ? 'btn-primary' :  'btn-outline-primary')}
-          onClick={() => onBtnContinentHandler(ASIA)}
-          >
-          {ASIA}
-        </button>
-        <button type="button" 
-          className={'btn-continent btn ' + (currentContinentActive === ERUOPE ? 'btn-primary' :  'btn-outline-primary')}
-          onClick={() => onBtnContinentHandler(ERUOPE)}
-          >
-          {ERUOPE}
-        </button>
-        <button type="button" 
-          className={'btn-continent btn ' + (currentContinentActive === OCEANIA ? 'btn-primary' :  'btn-outline-primary')}
-          onClick={() => onBtnContinentHandler(OCEANIA)}
-          >
-          {OCEANIA}
-        </button>
-        <button type="button" 
-          className={'btn-continent btn ' + (currentContinentActive === POLAR ? 'btn-primary' :  'btn-outline-primary')}
-          onClick={() => onBtnContinentHandler(POLAR)}
-          >
-          {POLAR}
-        </button>
+        <Button 
+          currentContext={currentContinentActive}
+          buttonContext={AFRICA}
+          onClickHandler={onBtnContinentHandler}
+        />
+        <Button 
+          currentContext={currentContinentActive}
+          buttonContext={AMERICAS}
+          onClickHandler={onBtnContinentHandler}
+        />
+        <Button 
+          currentContext={currentContinentActive}
+          buttonContext={ASIA}
+          onClickHandler={onBtnContinentHandler}
+        />
+        <Button 
+          currentContext={currentContinentActive}
+          buttonContext={ERUOPE}
+          onClickHandler={onBtnContinentHandler}
+        />
+        <Button 
+          currentContext={currentContinentActive}
+          buttonContext={OCEANIA}
+          onClickHandler={onBtnContinentHandler}
+        />
+        <Button 
+          currentContext={currentContinentActive}
+          buttonContext={POLAR}
+          onClickHandler={onBtnContinentHandler}
+        />
       </div>
       
       <div className="continent__box">
