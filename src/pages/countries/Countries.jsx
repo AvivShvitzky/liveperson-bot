@@ -32,38 +32,38 @@ function Countries() {
     setCurrentContinentActive(continentName)
   }
 
-  const ElemCountry = country => {
-    return <div className="country__box" key={country.name}>
-      <Link 
-        to={{
-          pathname: `/country/${country.name}`,
-          state: {country} 
-        }}
-      >
-        <img className="country__image" src={country.flag} alt=""/>
-        {country.name}
-      </Link>
-    </div>
-  }
+  function renderCountries() {
+    const ElemCountry = ({country}) => {
+      return <div className="country__box">
+        <Link 
+          to={{
+            pathname: `/country/${country.name}`,
+            state: {country} 
+          }}
+        >
+          <img className="country__image" src={country.flag} alt=""/>
+          {country.name}
+        </Link>
+      </div>
+    }
 
-  const renderCountries = () => {
-    const renderCountriesBycontinent = continent => {
-      return <div key={continent}>
+    const CountriesBycontinent = ({continent}) => {
+      return <>
         <div className="continent__name__box"><span>{continent}</span></div>
         <div className="continent__countries__list">
           {[...countries[continent]].sort().map(country =>
-            ElemCountry(country)
+            <ElemCountry country={country} key={country.name}/>
           )}
         </div>
-      </div> 
+      </> 
     }
 
     if (currentContinentActive === ALL) {
       return Object.keys(countries).map(continent => 
-        renderCountriesBycontinent(continent)
+        <CountriesBycontinent continent={continent} key={continent} />
       )
     } else {
-      return renderCountriesBycontinent(currentContinentActive)
+      return <CountriesBycontinent continent={currentContinentActive} key={currentContinentActive} />
     }
   }
 
