@@ -14,6 +14,7 @@ import { fetchCountries } from '../../api/fetchFuncs'
 function Countries() {
   const [countries, setCountries] = useState({})
   const [currentContinentActive, setCurrentContinentActive] = useState(ALL)
+  const [inputValue, setInputValue] = useState('')
   const continents = [ALL, AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA]
 
   useEffect(() => {
@@ -37,6 +38,7 @@ function Countries() {
         <CountriesBycontinent 
           continent={continent} 
           countries={countries}
+          countryName={inputValue}
           key={continent} 
         />
       )
@@ -44,6 +46,7 @@ function Countries() {
       return <CountriesBycontinent 
         continent={currentContinentActive} 
         countries={countries}
+        countryName={inputValue}
         key={currentContinentActive} 
       />
     }
@@ -51,15 +54,26 @@ function Countries() {
 
   return (
     <div className="countries">
-      <div className="btn-continents__box">
-        {continents.map(continent =>
-          <BtnContinent 
-            currentContext={currentContinentActive}
-            buttonContext={continent}
-            onClickHandler={onBtnContinentHandler}
-            key={continent}
+      <div className="countries__toolbar">
+        <div className="btn-continents__box">
+          {continents.map(continent =>
+            <BtnContinent 
+              currentContext={currentContinentActive}
+              buttonContext={continent}
+              onClickHandler={onBtnContinentHandler}
+              key={continent}
+            />
+          )}
+        </div>
+        <div className="input-group flex-nowrap">
+          <input 
+            type="text" 
+            className="form-control" 
+            value={inputValue}
+            onChange={(e => setInputValue(e.target.value))}
+            placeholder="Country Name" 
           />
-        )}
+        </div>
       </div>
       
       <div className="continent__box">

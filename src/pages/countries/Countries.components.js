@@ -25,11 +25,12 @@ const Country = ({ country }) => {
   </div>
 }
 
-export const CountriesBycontinent = ({ continent, countries }) => {
+export const CountriesBycontinent = ({ continent, countries, countryName }) => {
   return <>
     <div className="continent__name__box"><span>{continent}</span></div>
     <div className="continent__countries__list">
       {[...countries[continent]].sort().map(country =>
+        country.name.toLowerCase().includes(countryName) &&
         <Country country={country} key={country.name}/>
       )}
     </div>
