@@ -33,6 +33,7 @@ export const CountriesBycontinent = ({ continent, countries, countryName }) => {
   )
 
   if (Elemcountries.length !== 0) {
+    if (continent === '') continent = OTHER // the api is broken and have one empty continent
     return <>
       <div className="continent__name__box"><span>{continent}</span></div>
       <div className="continent__countries__list">
