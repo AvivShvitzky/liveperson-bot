@@ -1,10 +1,9 @@
 // libraries and css
 import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
 import './Countries.css'
 
 // components
-import Button from '../../components/button/button-countries/BtnCountries'
+import { BtnContinent, CountriesBycontinent } from './Countries.components'
 
 // consts
 import {ALL, AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA} from '../../constants'
@@ -33,37 +32,20 @@ function Countries() {
   }
 
   function renderCountries() {
-    const ElemCountry = ({country}) => {
-      return <div className="country__box">
-        <Link 
-          to={{
-            pathname: `/country/${country.name}`,
-            state: {country} 
-          }}
-        >
-          <img className="country__image" src={country.flag} alt=""/>
-          {country.name}
-        </Link>
-      </div>
-    }
-
-    const CountriesBycontinent = ({continent}) => {
-      return <>
-        <div className="continent__name__box"><span>{continent}</span></div>
-        <div className="continent__countries__list">
-          {[...countries[continent]].sort().map(country =>
-            <ElemCountry country={country} key={country.name}/>
-          )}
-        </div>
-      </> 
-    }
-
     if (currentContinentActive === ALL) {
       return Object.keys(countries).map(continent => 
-        <CountriesBycontinent continent={continent} key={continent} />
+        <CountriesBycontinent 
+          continent={continent} 
+          countries={countries}
+          key={continent} 
+        />
       )
     } else {
-      return <CountriesBycontinent continent={currentContinentActive} key={currentContinentActive} />
+      return <CountriesBycontinent 
+        continent={currentContinentActive} 
+        countries={countries}
+        key={currentContinentActive} 
+      />
     }
   }
 
@@ -71,7 +53,7 @@ function Countries() {
     <div className="countries">
       <div className="btn-continents__box">
         {continents.map(continent =>
-          <Button 
+          <BtnContinent 
             currentContext={currentContinentActive}
             buttonContext={continent}
             onClickHandler={onBtnContinentHandler}
