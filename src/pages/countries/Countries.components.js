@@ -26,13 +26,19 @@ const Country = ({ country }) => {
 }
 
 export const CountriesBycontinent = ({ continent, countries, countryName }) => {
-  return <>
-    <div className="continent__name__box"><span>{continent}</span></div>
-    <div className="continent__countries__list">
-      {[...countries[continent]].sort().map(country =>
-        country.name.toLowerCase().includes(countryName) &&
+  const Elemcountries = [...countries[continent]].sort().filter(country =>
+    country.name.toLowerCase().includes(countryName)
+  )
+
+  if (Elemcountries.length !== 0) {
+    return <>
+      <div className="continent__name__box"><span>{continent}</span></div>
+      <div className="continent__countries__list">
+      {Elemcountries.map(country => 
         <Country country={country} key={country.name}/>
       )}
-    </div>
-  </> 
+      </div>
+    </> 
+  }
+  return <></> 
 }
