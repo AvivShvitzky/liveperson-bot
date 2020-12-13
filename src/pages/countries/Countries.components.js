@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { OTHER } from '../../constants'
 
 export const BtnContinent = ({ currentContext, buttonContext, onClickHandler}) => {
   return (
@@ -26,6 +27,7 @@ const Country = ({ country }) => {
 }
 
 export const CountriesBycontinent = ({ continent, countries, countryName }) => {
+  if (continent === OTHER) continent = '' // the api is broken and have one empty continent
   const Elemcountries = [...countries[continent]].sort().filter(country =>
     country.name.toLowerCase().includes(countryName)
   )

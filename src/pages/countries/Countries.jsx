@@ -6,7 +6,7 @@ import './Countries.css'
 import { BtnContinent, CountriesBycontinent } from './Countries.components'
 
 // consts
-import {ALL, AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA} from '../../constants'
+import { ALL, AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA, POLAR, OTHER } from '../../constants'
 
 // api
 import { fetchCountries } from '../../api/fetchFuncs'
@@ -15,7 +15,7 @@ function Countries() {
   const [countries, setCountries] = useState({})
   const [currentContinentActive, setCurrentContinentActive] = useState(ALL)
   const [inputValue, setInputValue] = useState('')
-  const continents = [ALL, AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA]
+  const continents = [ALL, AFRICA, AMERICAS, ASIA, ERUOPE, OCEANIA, POLAR, OTHER]
 
   useEffect(() => {
     async function getCountries() {
